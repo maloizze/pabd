@@ -4,6 +4,10 @@
  */
 package ui_3inf2v;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author 20221074010065
@@ -61,6 +65,11 @@ public class TrianguloUI extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Triângulos");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -178,6 +187,15 @@ public class TrianguloUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcActionPerformed
+        
+      
+        JOptionPane.showMessageDialog(null, 
+                "Preencha todos os lados!",
+                "ERRO",
+                JOptionPane.ERROR_MESSAGE
+        
+        );
+        
         double a = Double.parseDouble(A.getText());
         double b = Double.parseDouble(B.getText());
         double c = Double.parseDouble(C.getText());
@@ -196,6 +214,16 @@ public class TrianguloUI extends javax.swing.JFrame {
             }
         } else tipoLabel.setText("Não é um triangulo");
     }//GEN-LAST:event_calcActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        A.setText("");
+        B.setText("");
+        C.setText("");
+       jLabel1.setText("Tipo= ?");
+       jLabel2.setForeground(Color.black);
+       jLabel3.setText("Área = ?");
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
